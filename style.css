@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+} 
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.full_width {
+    width: 100%;
+    margin: ;
+}
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
