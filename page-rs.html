@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout-wrapper">
+
+    <!-- NOUVEAU : La zone invisible qui va capter la souris -->
+<div class="zone-declencheur">
+        <div class="icone-menu">☰</div>
+    </div>    <div class="sidebar">
+      <div class="sidebar-top">
+          <h2 class="logo-text">Maeva Mistrot dit Pachet</h2>
+          <div class="menu-lateral">
+              <p class="menu-title">Mon travail</p>
+              <nav class="menu-links">
+    <a href="index.html">← Retour à l'accueil</a>
+    <a href="page-affiches.html">Affiche</a>
+    <a href="page-comm.html">Comm'</a>
+    <a href="page-design.html">Design</a>
+    <a href="page-film.html">Relation presse / Écriture / Film</a>
+    <a href="page-photo.html">Photo</a>
+    <a href="page-logo.html">Logo</a>
+    <a href="page-rp.html">RP</a> 
+    <a href="page-rs.html"class="active">RS</a> </nav>
+              
+              <p class="menu-title">En savoir plus</p>
+              <nav class="menu-links">
+                  <a href="a-propos.html">À propos de moi</a>
+                  <a href="contact.html">Demande de renseignement</a>
+              </nav>
+          </div>
+      </div>
+      
+      <div class="social-links">
+          <div class="social-links">
+    <a href="https://www.linkedin.com/in/maëva-mistrot-dit-pachet/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/maeva.mdp?igsh=MXB2cDVnMjRlbTE3Ng%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+</div>
+          
+      </div>
+  </div>
+   <div class="main-content">
+    <div style="padding: 40px 40px 0 40px;">
+        <h1 class="project-title">Réseaux Sociaux</h1>
+        <p class="project-subtitle">Stratégie de contenu, Reels et photos.</p>
+    </div>
+
+    <div class="galerie-2-colonnes">
+        <div class="affiche-item">
+            <img src="images/RS/Umaine.png" alt="Photo Instagram">
+            <div class="affiche-overlay"><p><strong>Contenu</strong> Photo</p></div>
+        </div>
+        <div class="affiche-item">
+            <img src="images/RS/Colorproof.png" alt="Photo Instagram">
+            <div class="affiche-overlay"><p><strong>Contenu</strong> Photo</p></div>
+        </div>
+    </div>
+
+    <div style="height: 30px;"></div>
+
+    <div class="galerie-2-colonnes">
+        <div class="affiche-item">
+            <video src="images/RS/Ma douce F 2.mp4" muted loop playsinline></video>
+            <div class="affiche-overlay"><p><strong>Reel</strong> Vidéo</p></div>
+        </div>
+        <div class="affiche-item">
+            <video src="images/RS/SET.mp4" muted loop playsinline></video>
+            <div class="affiche-overlay"><p><strong>Reel</strong> Vidéo</p></div>
+        </div>
+    </div>
+
+    <div style="height: 30px;"></div>
+
+    <div class="galerie-2-colonnes">
+        <div class="affiche-item">
+            <img src="images/RS/LPS2.png" alt="Photo Instagram">
+            <div class="affiche-overlay"><p><strong>Contenu</strong> Story</p></div>
+        </div>
+        <div class="affiche-item">
+            <img src="images/RS/LPS3.png" alt="Photo Instagram">
+            <div class="affiche-overlay"><p><strong>Contenu</strong> Story</p></div>
+        </div>
+    </div>
+
+    <div style="height: 30px;"></div>
+
+    <div class="galerie-2-colonnes">
+        <div class="affiche-item">
+            <img src="images/RS/Redbull.png" alt="Photo Instagram">
+            <div class="affiche-overlay"><p><strong>Contenu</strong> Photo</p></div>
+        </div>
+        <div class="affiche-item">
+            <img src="images/RS/Redbull2.png" alt="Photo Instagram">
+            <div class="affiche-overlay"><p><strong>Contenu</strong> Photo</p></div>
+        </div>
+    </div>
+</div>
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img id="imgAgrandie" class="modal-content" style="display:none;">
+    <video id="videoAgrandie" class="modal-content" controls autoplay style="display:none;"></video>
+</div>
+
+    <script>
+    const modal = document.getElementById("imageModal");
+    const imgAgrandie = document.getElementById("imgAgrandie");
+    const videoAgrandie = document.getElementById("videoAgrandie");
+
+    document.querySelectorAll(".affiche-item").forEach(bloc => {
+        bloc.addEventListener("click", function() {
+            modal.style.display = "flex";
+            
+            // On regarde ce qui se trouve dans le bloc cliqué
+            const video = this.querySelector("video");
+            const image = this.querySelector("img");
+
+            if (video) {
+                // C'est une vidéo
+                videoAgrandie.src = video.src;
+                videoAgrandie.style.display = "block";
+                imgAgrandie.style.display = "none";
+            } else if (image) {
+                // C'est une image
+                imgAgrandie.src = image.src;
+                imgAgrandie.style.display = "block";
+                videoAgrandie.style.display = "none";
+                videoAgrandie.pause(); // On coupe la vidéo si elle tournait
+            }
+        });
+    });
+
+    // Fermer
+    document.querySelector(".close-modal").addEventListener("click", function() {
+        modal.style.display = "none";
+        videoAgrandie.pause(); // Coupe le son/vidéo à la fermeture
+    });
+</script>
+</body>
+</html>
