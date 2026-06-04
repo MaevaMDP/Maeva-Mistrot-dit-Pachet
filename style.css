@@ -725,3 +725,29 @@ img {
 
     .project-title { font-size: 32px !important; }
 }
+.gallery-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.hover-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent */
+    color: #49376a; /* Couleur de ton texte */
+    font-weight: bold;
+    font-size: 18px;
+    opacity: 0; /* Caché au repos */
+    transition: opacity 0.3s ease; /* Effet de fondu doux */
+}
+
+.gallery-item:hover .hover-text {
+    opacity: 1; /* Apparaît au survol */
+}
